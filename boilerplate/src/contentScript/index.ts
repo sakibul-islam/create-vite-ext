@@ -1,0 +1,1 @@
+console.log('⚙️ contentScript of __PROJECT_NAME__')

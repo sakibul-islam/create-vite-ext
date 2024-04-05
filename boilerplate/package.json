@@ -1,5 +1,6 @@
 {
-  "name": "boilerplate",
+  "name": "browser-extension-boilerplate",
+  "displayName": "Browser Extension Boilerplate",
   "private": true,
   "version": "1.0.0",
   "type": "module",

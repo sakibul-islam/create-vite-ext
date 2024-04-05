@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "manifest.config.ts"],
+  "include": ["src", "src/manifest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
