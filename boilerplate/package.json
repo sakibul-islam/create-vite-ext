@@ -1,6 +1,6 @@
 {
-  "name": "browser-extension-boilerplate",
-  "displayName": "Browser Extension Boilerplate",
+  "name": "vite-browser-extension",
+  "displayName": "Vite Browser Extension",
   "private": true,
   "version": "1.0.0",
   "type": "module",

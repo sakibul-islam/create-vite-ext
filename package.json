@@ -1,5 +1,5 @@
 {
-  "name": "create-browser-extension",
+  "name": "create-vite-ext",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "build": "tsc index.ts"
   },
   "bin": {
-    "create-browser-extension": "index.js"
+    "create-vite-ext": "index.js"
   },
   "keywords": [],
   "author": "Sakibul Islam",
