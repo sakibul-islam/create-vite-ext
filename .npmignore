@@ -1,0 +1,12 @@
+# ignore package managers' files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+node_modules
+
+# ts entry
+./index.ts
+
+# dev
+Test Project
