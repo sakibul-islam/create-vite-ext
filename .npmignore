@@ -8,5 +8,8 @@ node_modules
 # src
 src/*
 
+# builds
+templates/**/build
+
 # dev
 Vite Powered Browser Extension

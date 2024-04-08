@@ -7,8 +7,9 @@ import {
   reset,
 } from 'kolorist';
 import { copyDir, emptyDir, formatTargetDir, isDev, isEmpty, isValidPackageName, toValidPackageName } from './functions';
-import { defaultProjectName, templateDirName } from './defaults';
+import { defaultProjectName, templateDirName } from './common';
 import { PromptAnswers } from './type';
+import { AVAILABLE_FRAMEWORKS, FRAMEWORKS, Framework } from './frameworks';
 
 let projectName = defaultProjectName;
 
@@ -78,6 +79,33 @@ async function getResponse() {
           name: 'authorName',
           message: 'Author name:',
         },
+        {
+          type: 'select',
+          name: 'framework',
+          message: reset('Select a framework:'),
+          initial: 0,
+          choices: AVAILABLE_FRAMEWORKS.map((framework) => {
+            const frameworkColor = framework.color;
+            return {
+              title: frameworkColor(framework.display || framework.name),
+              value: framework,
+            };
+          }),
+        },
+        {
+          type: (framework: Framework) =>
+            framework && framework.variants ? 'select' : null,
+          name: 'variant',
+          message: reset('Select a variant:'),
+          choices: (framework: Framework) =>
+            framework.variants.map((variant) => {
+              const variantColor = variant.color;
+              return {
+                title: variantColor(variant.display || variant.name),
+                value: variant.name,
+              };
+            }),
+        },
       ],
       {
         onCancel: () => {
@@ -96,7 +124,7 @@ async function init() {
   const response = await getResponse();
   if (isDev) console.log(response);
   if (!response) return;
-  const { projectName, overwrite, packageName, authorName } = response;
+  const { projectName, overwrite, variant, packageName, authorName } = response;
 
   const targetPath = path.join(process.cwd(), projectName);
   // console.log({ targetPath });
@@ -109,7 +137,7 @@ async function init() {
 
   console.log(`\nScaffolding extension in ${targetPath}...`);
 
-  copyDir(path.resolve(__dirname, "..", templateDirName), targetPath, response);
+  copyDir(path.resolve(__dirname, "..", templateDirName, variant), targetPath, response);
 
   console.log(green(`\nCreated "${projectName}"`));
 }

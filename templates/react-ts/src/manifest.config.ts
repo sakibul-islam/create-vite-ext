@@ -9,6 +9,7 @@ export const browser: Browser = process.env.BROWSER?.trim() == 'firefox' ? 'fire
 const manifest: ManifestV3Export = {
   manifest_version: 3,
   name: packageJson.displayName || packageJson.name,
+  description: packageJson.description,
   version: version,
   action: {
     default_popup: 'popup.html'

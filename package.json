@@ -4,7 +4,7 @@
   "description": "Scaffolding your Vite powered browser extensions",
   "main": "index.js",
   "workspaces": [
-    "boilerplate"
+    "templates/*"
   ],
   "scripts": {
     "dev": "SET NODE_ENV=development&& ts-node-dev --respawn src/index.ts",

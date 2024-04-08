@@ -1,8 +1,9 @@
 {
   "name": "--package-name--",
   "displayName": "__PROJECT_NAME__",
+  "description": "Browser extension using React + Typescript",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "__AUTHOR_NAME__",
   "type": "module",
   "scripts": {

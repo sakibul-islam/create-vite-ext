@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ignoreCopyingFiles, templateDirName } from './defaults';
+import { templateDirName } from './common';
 import { PromptAnswers } from './type';
 
 export const isDev = process.env.NODE_ENV === 'development';
@@ -59,15 +59,19 @@ export function copy(src: string, dest: string, promptAnswers: PromptAnswers) {
 }
 
 /**
- * This function will ignore copying files includes in `ignoreCopyingFiles` array
+ * This function will ignore copying files includes in `ignoreFiles` array
  */
 export function copyDir(srcDir: string, destDir: string, promptAnswers: PromptAnswers) {
+  const ignoreFiles = [
+    'build',
+    'node_modules'
+  ];
   fs.mkdirSync(destDir, { recursive: true });
   for (const file of fs.readdirSync(srcDir)) {
     const srcFile = path.resolve(srcDir, file);
     const destFile = path.resolve(destDir, file);
 
-    if (ignoreCopyingFiles.includes(srcFile)) continue;
+    if (ignoreFiles.includes(file)) continue;
 
     copy(srcFile, destFile, promptAnswers);
   }

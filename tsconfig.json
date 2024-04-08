@@ -7,5 +7,10 @@
     "strict": true
   },
   "include": ["**/*.ts", "src/index.ts"],
-  "exclude": ["node_modules", "dist", "boilerplate", "Vite Powered Browser Extension"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "templates",
+    "Vite Powered Browser Extension"
+  ]
 }
