@@ -5,8 +5,8 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 node_modules
 
-# ts entry
-./index.ts
+# src
+src/*
 
 # dev
-Test Project
+Vite Powered Browser Extension

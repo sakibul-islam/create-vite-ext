@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    // "esModuleInterop": true,
     "target": "es2021",
     "moduleResolution": "node",
+    "outDir": "dist",
     "strict": true
   },
-  "include": ["**/*.ts", "index.ts"],
-  "exclude": ["node_modules", "dist", "boilerplate", "Test Project"]
+  "include": ["**/*.ts", "src/index.ts"],
+  "exclude": ["node_modules", "dist", "boilerplate", "Vite Powered Browser Extension"]
 }

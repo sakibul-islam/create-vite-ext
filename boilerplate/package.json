@@ -1,8 +1,9 @@
 {
-  "name": "vite-browser-extension",
-  "displayName": "Vite Browser Extension",
+  "name": "--package-name--",
+  "displayName": "__PROJECT_NAME__",
   "private": true,
   "version": "1.0.0",
+  "author": "__AUTHOR_NAME__",
   "type": "module",
   "scripts": {
     "dev": "vite",

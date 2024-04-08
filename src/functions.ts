@@ -1,0 +1,74 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import { ignoreCopyingFiles, templateDirName } from './defaults';
+import { PromptAnswers } from './type';
+
+export const isDev = process.env.NODE_ENV === 'development';
+
+export function formatTargetDir(targetDir: string | undefined) {
+  return targetDir?.trim().replace(/\/+$/g, '');
+}
+
+export function isEmpty(path: string) {
+  const files = fs.readdirSync(path);
+  return files.length === 0 || (files.length === 1 && files[0] === '.git');
+}
+
+export function isValidPackageName(projectName: string) {
+  return /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
+    projectName,
+  );
+}
+
+export function toValidPackageName(projectName: string) {
+  return projectName
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/^[._]/, '')
+    .replace(/[^a-z\d\-~]+/g, '-');
+}
+
+export function emptyDir(dir: string) {
+  if (!fs.existsSync(dir)) return;
+  for (const file of fs.readdirSync(dir)) {
+    if (file === '.git') continue;
+    fs.rmSync(path.resolve(dir, file), { recursive: true, force: true });
+  }
+}
+
+function copyFileContent(srcFilePath: string, destFilePath: string, promptAnswers: PromptAnswers) {
+  const content = fs.readFileSync(srcFilePath, 'utf8');
+
+  const replacedContent = content
+    .replace(/--package-name--/g, promptAnswers.packageName)
+    .replace(/__PROJECT_NAME__/g, promptAnswers.projectName)
+    .replace(/__AUTHOR_NAME__/g, promptAnswers.authorName);
+
+  fs.writeFileSync(destFilePath, replacedContent);
+}
+
+export function copy(src: string, dest: string, promptAnswers: PromptAnswers) {
+  const stat = fs.statSync(src);
+  if (stat.isDirectory()) {
+    copyDir(src, dest, promptAnswers);
+  } else {
+    // fs.copyFileSync(src, dest);
+    copyFileContent(src, dest, promptAnswers);
+  }
+}
+
+/**
+ * This function will ignore copying files includes in `ignoreCopyingFiles` array
+ */
+export function copyDir(srcDir: string, destDir: string, promptAnswers: PromptAnswers) {
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const file of fs.readdirSync(srcDir)) {
+    const srcFile = path.resolve(srcDir, file);
+    const destFile = path.resolve(destDir, file);
+
+    if (ignoreCopyingFiles.includes(srcFile)) continue;
+
+    copy(srcFile, destFile, promptAnswers);
+  }
+}

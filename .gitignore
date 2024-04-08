@@ -8,4 +8,4 @@ pnpm-lock.yaml
 # build
 dist
 index.js*
-Test Project
+Vite Powered Browser Extension
