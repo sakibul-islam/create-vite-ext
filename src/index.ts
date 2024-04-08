@@ -109,9 +109,14 @@ async function init() {
 
   console.log(`\nScaffolding extension in ${targetPath}...`);
 
-  copyDir(path.join(templateDirName), targetPath, response);
+  copyDir(path.resolve(__dirname, "..", templateDirName), targetPath, response);
 
   console.log(green(`\nCreated "${projectName}"`));
 }
 
-init();
+init()
+  .catch(err => {
+    console.log(err);
+  }).finally(() => {
+    if (!isDev) process.exit();
+  });

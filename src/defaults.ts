@@ -6,6 +6,6 @@ export const defaultProjectName = 'Vite Powered Browser Extension';
 export const ignoreCopyingFiles = [
   'build',
   'node_modules'
-].map(file => path.resolve('boilerplate', file));
+].map(file => path.resolve(__dirname, '..', templateDirName, file));
 
 // console.log({ ignoreCopyingFiles });
