@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
-import './Popup.css'
+import { useState } from 'react';
+import reactLogo from '../assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
-function Popup() {
-  const [count, setCount] = useState(0)
+function App({ entryFile }) {
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -22,14 +22,14 @@ function Popup() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/popup/Popup.tsx</code> and save to test HMR
+          Edit <code>{entryFile}</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default Popup
+export default App;

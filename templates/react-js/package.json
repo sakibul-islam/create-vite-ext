@@ -1,13 +1,15 @@
 {
-  "name": "react-js",
+  "name": "--package-react-js--",
   "displayName": "__PROJECT_NAME__",
-  "description": "Browser extension using React + Javascript",
+  "description": "Browser Extension using React + JavaScript, Powered by Vite",
   "private": true,
   "version": "0.0.0",
+  "author": "__AUTHOR_NAME__",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:firefox": "SET BROWSER=firefox && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

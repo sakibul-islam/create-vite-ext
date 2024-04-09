@@ -8,4 +8,9 @@ pnpm-lock.yaml
 # build
 dist
 index.js*
+templates/**/build
 Vite Powered Browser Extension
+
+# Local
+notes
+templates/**/todos.md*

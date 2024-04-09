@@ -64,7 +64,8 @@ export function copy(src: string, dest: string, promptAnswers: PromptAnswers) {
 export function copyDir(srcDir: string, destDir: string, promptAnswers: PromptAnswers) {
   const ignoreFiles = [
     'build',
-    'node_modules'
+    'node_modules',
+    'todos.md',
   ];
   fs.mkdirSync(destDir, { recursive: true });
   for (const file of fs.readdirSync(srcDir)) {

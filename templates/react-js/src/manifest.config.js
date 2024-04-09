@@ -5,7 +5,6 @@ const { version } = packageJson;
 
 // eslint-disable-next-line no-undef
 export const browser = process.env.BROWSER?.trim() == 'firefox' ? 'firefox' : 'chrome';
-console.log({ browser });
 
 //TODO: add separate entry points
 const manifest = {
@@ -16,21 +15,21 @@ const manifest = {
   action: {
     default_popup: 'index.html'
   },
-  options_page: 'index.html',
-  // content_scripts: [
-  //   {
-  //     matches: ['http://*/*', 'https://*/*'],
-  //     js: ['src/contentScript/index.ts'],
-  //   }
-  // ],
+  options_page: 'options.html',
+  content_scripts: [
+    {
+      matches: ['http://*/*', 'https://*/*'],
+      js: ['src/entries/contentScript/index.js'],
+    }
+  ],
   chrome_url_overrides: {
-    newtab: 'index.html',
+    newtab: 'newtab.html',
   },
-  // background: browser === 'firefox' ? {
-  //   scripts: ['src/background/index.ts'],
-  // } : {
-  //   service_worker: 'src/background/index.ts',
-  // }
+  background: browser === 'firefox' ? {
+    scripts: ['src/entries/background/index.js'],
+  } : {
+    service_worker: 'src/entries/background/index.js',
+  }
 };
 
 export default defineManifest(manifest);

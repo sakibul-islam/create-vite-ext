@@ -18,16 +18,16 @@ const manifest: ManifestV3Export = {
   content_scripts: [
     {
       matches: ['http://*/*', 'https://*/*'],
-      js: ['src/contentScript/index.ts'],
+      js: ['src/entries/contentScript/index.ts'],
     }
   ],
   chrome_url_overrides: {
     newtab: 'newtab.html',
   },
   background: browser === 'firefox' ? {
-    scripts: ['src/background/index.ts'],
+    scripts: ['src/entries/background/index.ts'],
   } : {
-    service_worker: 'src/background/index.ts',
+    service_worker: 'src/entries/background/index.ts',
   }
 };
 

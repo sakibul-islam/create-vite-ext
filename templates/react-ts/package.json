@@ -1,7 +1,7 @@
 {
   "name": "--package-name--",
   "displayName": "__PROJECT_NAME__",
-  "description": "Browser extension using React + Typescript",
+  "description": "Browser Extension using React + TypeScript, Powered by Vite",
   "private": true,
   "version": "0.0.0",
   "author": "__AUTHOR_NAME__",
