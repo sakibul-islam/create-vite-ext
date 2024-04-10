@@ -12,7 +12,14 @@ const manifest: ManifestV3Export = {
   description: packageJson.description,
   version: version,
   action: {
-    default_popup: 'popup.html'
+    default_popup: 'popup.html',
+    default_icon: 'icons/48x48.png',
+  },
+  icons: {
+    16: 'icons/16x16.png',
+    32: 'icons/32x32.png',
+    48: 'icons/48x48.png',
+    128: 'icons/128x128.png',
   },
   options_page: 'options.html',
   content_scripts: [
