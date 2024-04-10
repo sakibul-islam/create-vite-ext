@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { crx } from "@crxjs/vite-plugin";
+import zipPack from "vite-plugin-zip-pack";
+import { name, displayName, version } from "./package.json";
 import manifest, { browser } from "./src/manifest.config";
 
 // https://vitejs.dev/config/
@@ -20,5 +22,16 @@ export default defineConfig({
       port: 8082,
     },
   },
-  plugins: [react(), crx({ manifest, browser })],
+  plugins: [
+    react(),
+    crx({ manifest, browser }),
+    zipPack({
+      inDir: "build",
+      outDir: "build-zip",
+      outFileName: `${(displayName || name).replace(
+        /\s/g,
+        "-",
+      )}_v${version}.zip`,
+    }),
+  ],
 });
