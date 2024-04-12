@@ -10,6 +10,12 @@ src/*
 
 # builds
 templates/**/build
+templates/**/build-zip
 
 # dev
 Vite Powered Browser Extension
+
+# Local
+notes
+templates/**/todos.md*
+.vscode
