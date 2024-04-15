@@ -1,0 +1,26 @@
+{
+  "name": "vue-ts",
+  "displayName": "Vue & TypeScript Template",
+  "description": "Browser Extension using Vue + TypeScript, Powered by Vite",
+  "author": "__AUTHOR_NAME__",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "build:firefox": "SET BROWSER=firefox && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.23",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-zip-pack": "^1.2.3",
+    "vue-tsc": "^2.0.6"
+  }
+}

@@ -1,0 +1,1 @@
+console.log('⚙️ background-page of __PROJECT_NAME__')
