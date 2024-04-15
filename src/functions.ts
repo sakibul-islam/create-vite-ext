@@ -39,11 +39,17 @@ export function emptyDir(dir: string) {
 
 function copyFileContent(srcFilePath: string, destFilePath: string, promptAnswers: PromptAnswers) {
   const content = fs.readFileSync(srcFilePath, 'utf8');
-
-  const replacedContent = content
-    .replace(/--package-name--/g, promptAnswers.packageName)
-    .replace(/__PROJECT_NAME__/g, promptAnswers.projectName)
-    .replace(/__AUTHOR_NAME__/g, promptAnswers.authorName);
+  let replacedContent = content;
+  if (srcFilePath.endsWith('package.json')) {
+    replacedContent = content
+      .replace(/"name": ".*"/g, `"name": "${promptAnswers.packageName}"`)
+      .replace(/"displayName": ".+"/g, `"displayName": "${promptAnswers.projectName}"`)
+      .replace(/__AUTHOR_NAME__/g, promptAnswers.authorName);
+  } else {
+    replacedContent = content
+      .replace(/__PROJECT_NAME__/g, promptAnswers.projectName)
+      .replace(/__AUTHOR_NAME__/g, promptAnswers.authorName);
+  }
 
   fs.writeFileSync(destFilePath, replacedContent);
 }
