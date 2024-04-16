@@ -58,9 +58,10 @@ export function copy(src: string, dest: string, promptAnswers: PromptAnswers) {
   const stat = fs.statSync(src);
   if (stat.isDirectory()) {
     copyDir(src, dest, promptAnswers);
-  } else {
-    // fs.copyFileSync(src, dest);
+  } else if (src.match(/\.(js|ts|md|json)$/)) {
     copyFileContent(src, dest, promptAnswers);
+  } else {
+    fs.copyFileSync(src, dest);
   }
 }
 
