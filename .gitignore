@@ -9,6 +9,7 @@ pnpm-lock.yaml
 dist
 index.js*
 templates/**/build
+templates/**/build-zip
 Vite Powered Browser Extension
 
 # Local

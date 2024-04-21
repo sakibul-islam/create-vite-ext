@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { templateDirName } from './common';
+import { renameFiles, templateDirName } from './common';
 import { PromptAnswers } from './type';
 
 export const isDev = process.env.NODE_ENV === 'development';
@@ -77,7 +77,7 @@ export function copyDir(srcDir: string, destDir: string, promptAnswers: PromptAn
   fs.mkdirSync(destDir, { recursive: true });
   for (const file of fs.readdirSync(srcDir)) {
     const srcFile = path.resolve(srcDir, file);
-    const destFile = path.resolve(destDir, file);
+    const destFile = path.resolve(destDir, renameFiles[file] ?? file);
 
     if (ignoreFiles.includes(file)) continue;
 
