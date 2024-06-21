@@ -2,11 +2,9 @@ import { defineManifest } from "@crxjs/vite-plugin";
 import packageJson from "../package.json";
 const { version } = packageJson;
 
-// eslint-disable-next-line no-undef
 export const browser =
   process.env.BROWSER?.trim() == "firefox" ? "firefox" : "chrome";
 
-//TODO: add separate entry points
 const manifest = {
   manifest_version: 3,
   name: packageJson.displayName || packageJson.name,
