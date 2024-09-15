@@ -1,7 +1,7 @@
-import App from '../../components/App';
+import App from "@/components/App";
 
 function Options() {
-  return <App entryFile='src/entries/options/Options.tsx'/>
+  return <App entryFile='src/entries/options/Options.tsx' />;
 }
 
-export default Options
+export default Options;

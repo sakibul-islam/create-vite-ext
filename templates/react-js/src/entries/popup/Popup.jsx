@@ -1,8 +1,8 @@
-import App from "../../components/App";
+import App from "@/components/App";
 
 function Popup() {
   return (
-    <App entryFile={'src/entries/popup/Popup.jsx'}/>
+    <App entryFile={'src/entries/popup/Popup.jsx'} />
   );
 }
 

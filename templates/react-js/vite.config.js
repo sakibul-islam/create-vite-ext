@@ -4,9 +4,15 @@ import { crx } from "@crxjs/vite-plugin";
 import zipPack from "vite-plugin-zip-pack";
 import { name, displayName, version } from "./package.json";
 import manifest, { browser } from "./src/manifest.config";
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
     emptyOutDir: true,
     outDir: "build",
