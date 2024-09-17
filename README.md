@@ -11,7 +11,7 @@ This CLI tool helps you quickly set up browser extension projects using Vite for
 - **Optimized Builds:** Create production-ready extensions with optimized builds and automatic ZIP archives.
 - **Framework Flexibility:** Choose from popular frameworks like React, Vue and other (Comming Soon).
 - **Language Support:** Develop your extension in JavaScript or TypeScript.
-- **Tailwind CSS Integration:** Leverage Tailwind for rapid UI development. (Comming Soon)
+- **Tailwind CSS Integration:** Leverage Tailwind for rapid UI development.
 - **Cross-browser Compatibility:** Build extensions that work seamlessly across different browsers.
 
 ## Installation:
