@@ -46,35 +46,7 @@ export const FRAMEWORKS: Framework[] = [
       },
     ],
   },
-  {
-    name: 'vue',
-    display: 'Vue',
-    color: green,
-    variants: [
-      {
-        name: 'vue-ts',
-        display: 'TypeScript',
-        color: blue,
-      },
-      {
-        name: 'vue',
-        display: 'JavaScript',
-        color: yellow,
-      },
-      {
-        name: 'custom-create-vue',
-        display: 'Customize with create-vue ↗',
-        color: green,
-        customCommand: 'npm create vue@latest TARGET_DIR',
-      },
-      {
-        name: 'custom-nuxt',
-        display: 'Nuxt ↗',
-        color: lightGreen,
-        customCommand: 'npm exec nuxi init TARGET_DIR',
-      },
-    ],
-  },
+
   {
     name: 'react',
     display: 'React',
@@ -105,6 +77,35 @@ export const FRAMEWORKS: Framework[] = [
         display: 'Remix ↗',
         color: cyan,
         customCommand: 'npm create remix@latest TARGET_DIR',
+      },
+    ],
+  },
+  {
+    name: 'vue',
+    display: 'Vue',
+    color: green,
+    variants: [
+      {
+        name: 'vue-ts',
+        display: 'TypeScript',
+        color: blue,
+      },
+      {
+        name: 'vue',
+        display: 'JavaScript',
+        color: yellow,
+      },
+      {
+        name: 'custom-create-vue',
+        display: 'Customize with create-vue ↗',
+        color: green,
+        customCommand: 'npm create vue@latest TARGET_DIR',
+      },
+      {
+        name: 'custom-nuxt',
+        display: 'Nuxt ↗',
+        color: lightGreen,
+        customCommand: 'npm exec nuxi init TARGET_DIR',
       },
     ],
   },
