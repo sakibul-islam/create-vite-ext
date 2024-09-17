@@ -71,6 +71,7 @@ export function copy(src: string, dest: string, promptAnswers: PromptAnswers) {
 export function copyDir(srcDir: string, destDir: string, promptAnswers: PromptAnswers) {
   const ignoreFiles = [
     'build',
+    'build-zip',
     'node_modules',
     'todos.md',
   ];
