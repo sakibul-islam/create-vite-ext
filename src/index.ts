@@ -67,7 +67,7 @@ async function getResponse() {
           name: 'overwriteChecker',
         },
         {
-          type: () => (isValidPackageName(getProjectName()) ? null : 'text'),
+          type: 'text',
           name: 'packageName',
           message: reset('Package name:'),
           initial: () => toValidPackageName(getProjectName()),
@@ -124,6 +124,8 @@ async function init() {
   const response = await getResponse();
   if (isDev) console.log(response);
   if (!response) return;
+  // if (isDev) return;
+
   const { projectName, overwrite, variant, packageName, authorName } = response;
 
   const targetPath = path.join(process.cwd(), projectName);
