@@ -1,6 +1,6 @@
 {
   "name": "create-vite-ext",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Scaffolding your Vite powered browser extensions",
   "main": "index.js",
   "workspaces": [
@@ -12,8 +12,8 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "create-vite-ext": "index.js",
-    "create-vite-extension": "index.js"
+    "create-vite-ext": "dist/bin.js",
+    "create-vite-extension": "dist/bin.js"
   },
   "keywords": [],
   "repository": {
