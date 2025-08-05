@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { crx } from '@crxjs/vite-plugin';
 import zipPack from "vite-plugin-zip-pack";
+import tailwindcss from '@tailwindcss/vite';
 import { name, displayName, version } from './package.json';
 import manifest, { browser } from './src/manifest.config';
 import path from 'path';
@@ -30,12 +31,13 @@ export default defineConfig({
     },
   },
   plugins: [
+    tailwindcss(),
     react(),
     crx({ manifest, browser }),
     zipPack({
       inDir: 'build',
       outDir: 'build-zip',
       outFileName: `${(displayName || name).replace(/\s/g, "-")}_v${version}.zip`,
-    })
+    }),
   ],
 });
